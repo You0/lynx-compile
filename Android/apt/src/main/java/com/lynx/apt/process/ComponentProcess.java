@@ -29,7 +29,7 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.util.Elements;
 
 @AutoService(Processor.class)
-@SupportedSourceVersion(SourceVersion.RELEASE_7)
+@SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class ComponentProcess extends AbstractProcessor {
 
     private Elements elementUtils;
@@ -44,6 +44,7 @@ public class ComponentProcess extends AbstractProcessor {
             return isProcess;
         }
         isProcess = true;
+        System.out.println("test process");
         Set<? extends Element> uiElements = roundEnvironment.getElementsAnnotatedWith(UIComponent.class);
         ModuleSpec moduleSpec = new ModuleSpec();
         moduleSpec.moduleName = moduleName;
